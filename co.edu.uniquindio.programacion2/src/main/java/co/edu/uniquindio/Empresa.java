@@ -1,6 +1,7 @@
 package co.edu.uniquindio;
 
 import java.util.Collection;
+import java.util.Scanner;
 
 public class Empresa {
     private Collection<Propietario> listaPropietarios;
@@ -16,12 +17,37 @@ public class Empresa {
         this.listaVehiculosTransporte = listaVehiculosTransporte;
     }
 
+    public void mostrarMayoresDe(int edad){
+        System.out.println("los propietarios mayores de " + edad + " son:");
+        for(Propietario propietario : listaPropietarios){
+            if(propietario.getEdad() >=edad){
+                System.out.println(propietario.getNombre());
+            }
+        }
+
+    }
+
+    public void mostarEnRangoDeEdad(){
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Ingrese la edad minima del rango");
+        int edadMin = scanner.nextInt();
+        System.out.println("Ingrese la edad maxima del rango");
+        int edadMax = scanner.nextInt();
+        System.out.println("los propietarios en el rango de edad entre " + edadMin + " y " + edadMax + " son:");
+        scanner.close();
+        for(Propietario propietario : listaPropietarios){
+            if(propietario.getEdad() >= edadMin && propietario.getEdad() <= edadMax){
+                System.out.println(propietario.getNombre());
+            }
+        }
+    }
+
     public Collection<Propietario> getListaPropietarios() {
         return listaPropietarios;
     }
 
     public void setListaPropietarios(Collection<Propietario> listaPropietarios) {
-        this.listaPropietarios = listaPiropietarios;
+        this.listaPropietarios = listaPropietarios;
     }
 
     public Collection<Usuario> getListaUsuarios() {

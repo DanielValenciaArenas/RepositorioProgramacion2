@@ -7,7 +7,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Empresa empresaTransporte = inicializarDatos();
-        Propietario propietario = registroPropietarioVehiculo();
+        //Propietario propietario = registroPropietarioVehiculo();
+        //empresaTransporte.mostrarMayoresDe(40);
+        empresaTransporte.mostarEnRangoDeEdad();
 
     }
 
@@ -20,9 +22,9 @@ public class Main {
 
         // Se crean los Propietarios
         Propietario propietario1 = new Propietario("Monica", "1233456", "Monica@gmail.com",
-                "312432123", null, new LinkedList<>());
+                "312432123", 40,null, new LinkedList<>());
         Propietario propietario2 = new Propietario("Miguel", "6675427", "Miguel@gmail.com",
-                "320420312", null, new LinkedList<>());
+                "320420312", 40,null, new LinkedList<>());
 
         // Se crean los Vehiculos
         VehiculoTransporte vehiculoTransporte1 = new VehiculoTransporte("9KNB4", "NEW", "Moto",
@@ -102,7 +104,7 @@ public class Main {
 
         // Objeto Propietario
         Propietario propietario = new Propietario(nombrePropietario, cedulaPropietario, emailPropietario,
-                celularPropietario, null, new LinkedList<>());
+                celularPropietario,40, null, new LinkedList<>());
 
         // Objeto VehiculoCarga
         VehiculoCarga vehiculoCarga = new VehiculoCarga(placaVehiculo, modeloVehiculo, marcaVehiculo, colorVehiculo,
