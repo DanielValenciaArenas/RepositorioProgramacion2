@@ -98,7 +98,7 @@ public class Empresa {
     public void mostrarMayoresDe(int edad){
         System.out.println("los propietarios mayores de " + edad + " son:");
         for(Propietario propietario : listaPropietarios){
-            if(propietario.getEdad() >=edad){
+            if(propietario.getEdad() > edad){
                 System.out.println(propietario.getNombre());
             }
         }

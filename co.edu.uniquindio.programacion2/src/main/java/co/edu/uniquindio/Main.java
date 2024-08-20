@@ -13,7 +13,6 @@ public class Main {
         Propietario propietario = registroPropietarioVehiculo();
         calcularPasajerosTransportados();
 
-        empresaTransporte.mostarEnRangoDeEdad();
 
         //Filtrar usuarios según peso
         Scanner scanner = new Scanner(System.in);
@@ -26,6 +25,12 @@ public class Main {
         System.out.print("Ingrese la placa del vehículo de transporte para contar usuarios: ");
         String placa = scanner.nextLine();
         Empresa.contarUsuariosPorPlaca(empresaTransporte, placa);  // Corregido
+
+        System.out.print("Ingrese la edad para saber los propietarios mayores a esa edad: ");
+        int edad = scanner.nextInt();
+        empresaTransporte.mostrarMayoresDe(edad);
+
+        empresaTransporte.mostarEnRangoDeEdad();
     }
 
     public static Empresa inicializarDatos(){
