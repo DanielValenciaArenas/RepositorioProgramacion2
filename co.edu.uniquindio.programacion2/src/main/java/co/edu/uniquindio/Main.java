@@ -1,5 +1,6 @@
 package co.edu.uniquindio;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -8,7 +9,19 @@ public class Main {
     public static void main(String[] args) {
         Empresa empresaTransporte = inicializarDatos();
         Propietario propietario = registroPropietarioVehiculo();
+        calcularPasajerosTransportados();
 
+        //Filtrar usuarios según peso
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese el valor de peso para filtrar usuarios: ");
+        double peso = scanner.nextDouble();
+        scanner.nextLine();
+        Empresa.mostrarUsuariosPorPeso(empresaTransporte, peso);  // Corregido
+
+        // Contar usuarios por placa
+        System.out.print("Ingrese la placa del vehículo de transporte para contar usuarios: ");
+        String placa = scanner.nextLine();
+        Empresa.contarUsuariosPorPlaca(empresaTransporte, placa);  // Corregido
     }
 
     public static Empresa inicializarDatos(){
@@ -114,8 +127,42 @@ public class Main {
         return propietario;
     }
 
-    public void calcularPasajerosTransportados(){
+    public static void calcularPasajerosTransportados(){
 
+        // Se crean los 3 vehiculos
+        VehiculoTransporte vehiculo1 = new VehiculoTransporte("KKK245", "Modelo1", "Marca1",
+                "Rojo", null, null, 50, null);
+        VehiculoTransporte vehiculo2 = new VehiculoTransporte("LLL123", "Modelo2", "Marca2",
+                "Amarillo", null, null, 40, null);
+        VehiculoTransporte vehiculo3 = new VehiculoTransporte("ZZZ332", "Modelo3", "Marca3",
+                "Cafe", null, null, 30, null);
+
+        // Se agregan los vehiculos a una lista
+        Collection<VehiculoTransporte> vehiculosTransporte = new LinkedList<>();
+        vehiculosTransporte.add(vehiculo1);
+        vehiculosTransporte.add(vehiculo2);
+        vehiculosTransporte.add(vehiculo3);
+
+        // Se captura la placa del vehiculo (Consola)
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese la placa del vehículo para consultar los pasajeros transportados: ");
+        String placaBuscada = scanner.nextLine();
+
+        // Se busca el vehiculo por placa y se muestra cuantos pasajeros transportó
+        boolean encontrado = false;
+        for (VehiculoTransporte vehiculo : vehiculosTransporte) {
+            if (vehiculo.getPlaca().equals(placaBuscada)) {
+                System.out.println("El vehículo con placa " + placaBuscada +
+                        " transportó " + vehiculo.getMaxPasajeros() +
+                        " pasajeros hoy.");
+                encontrado = true;
+                break;
+            }
+        }
+
+        if (encontrado == false) {
+            System.out.println("No se ha encontrado un vehículo con la placa: " + placaBuscada);
+        }
     }
 
 }
