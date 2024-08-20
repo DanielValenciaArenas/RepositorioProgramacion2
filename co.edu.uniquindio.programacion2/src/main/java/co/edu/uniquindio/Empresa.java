@@ -19,31 +19,6 @@ public class Empresa {
         this.listaVehiculosTransporte = listaVehiculosTransporte;
     }
 
-    public void mostrarMayoresDe(int edad){
-        System.out.println("los propietarios mayores de " + edad + " son:");
-        for(Propietario propietario : listaPropietarios){
-            if(propietario.getEdad() >=edad){
-                System.out.println(propietario.getNombre());
-            }
-        }
-
-    }
-
-    public void mostarEnRangoDeEdad(){
-        Scanner scanner=new Scanner(System.in);
-        System.out.println("Ingrese la edad minima del rango");
-        int edadMin = scanner.nextInt();
-        System.out.println("Ingrese la edad maxima del rango");
-        int edadMax = scanner.nextInt();
-        System.out.println("los propietarios en el rango de edad entre " + edadMin + " y " + edadMax + " son:");
-        scanner.close();
-        for(Propietario propietario : listaPropietarios){
-            if(propietario.getEdad() >= edadMin && propietario.getEdad() <= edadMax){
-                System.out.println(propietario.getNombre());
-            }
-        }
-    }
-
     public Collection<Propietario> getListaPropietarios() {
         return listaPropietarios;
     }
@@ -74,6 +49,60 @@ public class Empresa {
 
     public void setListaVehiculosTransporte(Collection<VehiculoTransporte> listaVehiculosTransporte) {
         this.listaVehiculosTransporte = listaVehiculosTransporte;
+    }
+
+    public static Empresa inicializarDatos(){
+        //Aqui se crean las Listas (vacias por el momento) que contendrá la empresa
+        Collection<Propietario> listaPropietarios = new LinkedList<>();
+        Collection<Usuario> listaUsuarios = new LinkedList<>();
+        Collection<VehiculoCarga> listaVehiculosCarga = new LinkedList<>();
+        Collection<VehiculoTransporte> listaVehiculosTransporte = new LinkedList<>();
+
+        // Se crean los Propietarios
+        Propietario propietario1 = new Propietario("Monica", "1233456", "Monica@gmail.com",
+                "312432123", 40,null, new LinkedList<>());
+        Propietario propietario2 = new Propietario("Miguel", "6675427", "Miguel@gmail.com",
+                "320420312", 40,null, new LinkedList<>());
+
+        // Se crean los Vehiculos
+        VehiculoTransporte vehiculoTransporte1 = new VehiculoTransporte("9KNB4", "NEW", "Moto",
+                "Verde", propietario1, new LinkedList<>(), 2, new LinkedList<>());
+        VehiculoTransporte vehiculoTransporte2 = new VehiculoTransporte("5FCD2", "NEW", "Carro",
+                "Marrón", propietario2, new LinkedList<>(), 4, new LinkedList<>());
+        VehiculoCarga vehiculoCarga1 = new VehiculoCarga("7JHU", "NEW", "Camion",
+                "Negro", propietario1, new LinkedList<>(), 30.2, 8);
+        VehiculoCarga vehiculoCarga2 = new VehiculoCarga("8GF6T", "NEW", "Camion",
+                "Amarillo", propietario2, new LinkedList<>(), 24.4, 6);
+
+        // Se asocian los vehiculos con los propietarios
+        propietario1.getListaVehiculosAsociados().add(vehiculoTransporte1);
+        propietario1.getListaVehiculosAsociados().add(vehiculoCarga1);
+        propietario2.getListaVehiculosAsociados().add(vehiculoTransporte2);
+        propietario2.getListaVehiculosAsociados().add(vehiculoCarga2);
+
+        // Se crean los usuarios
+        Usuario usuario1 = new Usuario("Monica", "25", vehiculoTransporte1);
+        Usuario usuario2 = new Usuario("Miguel", "21", vehiculoTransporte2);
+
+        // Se asocian los usuarios a los vehiculos de transporte
+        vehiculoTransporte1.getListaUsuariosAsociados().add(usuario1);
+        vehiculoTransporte2.getListaUsuariosAsociados().add(usuario2);
+
+        // Se agrega la info a las listas de la Empresa
+        listaPropietarios.add(propietario1);
+        listaPropietarios.add(propietario2);
+        listaUsuarios.add(usuario1);
+        listaUsuarios.add(usuario2);
+        listaVehiculosCarga.add(vehiculoCarga1);
+        listaVehiculosCarga.add(vehiculoCarga2);
+        listaVehiculosTransporte.add(vehiculoTransporte1);
+        listaVehiculosTransporte.add(vehiculoTransporte2);
+
+        // Se crea la empresa con las listas
+        Empresa empresaTransporte = new Empresa (listaPropietarios, listaUsuarios, listaVehiculosCarga,
+                listaVehiculosTransporte);
+
+        return empresaTransporte;
     }
 
     public static void mostrarUsuariosPorPeso(Empresa empresaTransporte, double peso) {
@@ -118,6 +147,31 @@ public class Empresa {
             }
         }
         System.out.println("No se encontró el vehículo con la placa especificada.");
+    }
+
+    public void mostrarMayoresDe(int edad){
+        System.out.println("los propietarios mayores de " + edad + " son:");
+        for(Propietario propietario : listaPropietarios){
+            if(propietario.getEdad() >=edad){
+                System.out.println(propietario.getNombre());
+            }
+        }
+
+    }
+
+    public void mostarEnRangoDeEdad(){
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Ingrese la edad minima del rango");
+        int edadMin = scanner.nextInt();
+        System.out.println("Ingrese la edad maxima del rango");
+        int edadMax = scanner.nextInt();
+        System.out.println("los propietarios en el rango de edad entre " + edadMin + " y " + edadMax + " son:");
+        scanner.close();
+        for(Propietario propietario : listaPropietarios){
+            if(propietario.getEdad() >= edadMin && propietario.getEdad() <= edadMax){
+                System.out.println(propietario.getNombre());
+            }
+        }
     }
 
 }
