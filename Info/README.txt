@@ -4,6 +4,12 @@ Allison Lopez Caranton
 David Felipe Salazar Gonzalez
 Daniel Valencia Arenas
 
+INFORMACIÓN DEL PROYECTO:
+
+Este proyecto está basado en un problema entorno a una Empresa de Transportes. La empresa de transporte “Movilidad SA”.
+El proyecto tiene como objetivo desarrollar un sistema en Java para gestionar y operar dicha empresa de transportes. 
+El sistema debe permitir la creación y administración de propietarios y vehículos, así como el cálculo y visualización de diversos datos
+relacionados con el transporte de pasajeros y carga, los usuarios y propietarios. 
 
 CONTEXTO DE LAS FUNCIONALIDADES DEL PROYECTO:
 
