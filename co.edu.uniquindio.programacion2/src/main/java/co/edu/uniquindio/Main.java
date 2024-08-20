@@ -58,8 +58,8 @@ public class Main {
         propietario2.getListaVehiculosAsociados().add(vehiculoCarga2);
 
         // Se crean los usuarios
-        Usuario usuario1 = new Usuario("Monica", "25", vehiculoTransporte1);
-        Usuario usuario2 = new Usuario("Miguel", "21", vehiculoTransporte2);
+        Usuario usuario1 = new Usuario("Monica", "25", vehiculoTransporte1, 54.2);
+        Usuario usuario2 = new Usuario("Miguel", "21", vehiculoTransporte2, 80.1);
 
         // Se asocian los usuarios a los vehiculos de transporte
         vehiculoTransporte1.getListaUsuariosAsociados().add(usuario1);
