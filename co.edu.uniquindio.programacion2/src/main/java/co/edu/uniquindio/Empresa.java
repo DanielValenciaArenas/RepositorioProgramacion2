@@ -18,7 +18,10 @@ public class Empresa {
         this.listaVehiculosCarga = listaVehiculosCarga;
         this.listaVehiculosTransporte = listaVehiculosTransporte;
     }
-
+/*
+getters y setters
+Metodos para modificar y obtener los diferentes atributos de la clase
+ */
     public Collection<Propietario> getListaPropietarios() {
         return listaPropietarios;
     }
@@ -50,6 +53,10 @@ public class Empresa {
     public void setListaVehiculosTransporte(Collection<VehiculoTransporte> listaVehiculosTransporte) {
         this.listaVehiculosTransporte = listaVehiculosTransporte;
     }
+    /*
+Metodo para obtener el número de usuarios que superan determinado peso.
+@param peso
+ */
 
     public static void mostrarUsuariosPorPeso(Empresa empresaTransporte, double peso) {
         Collection<Usuario> usuariosFiltrados = new ArrayList<>();
@@ -84,6 +91,10 @@ public class Empresa {
         }
     }
 
+ /*
+Metodo para indicar el número de pasajeros transportados en un vehiculo según la placa
+ */
+
     public static void contarUsuariosPorPlaca(Empresa empresaTransporte, String placa) {
         for (VehiculoTransporte vehiculoTransporte : empresaTransporte.getListaVehiculosTransporte()) {
             if (vehiculoTransporte.getPlaca().equals(placa)) {
@@ -94,6 +105,10 @@ public class Empresa {
         }
         System.out.println("No se encontró el vehículo con la placa especificada.");
     }
+/*
+Metodo para obtener el número de propietarios que son mayores  de 40 años.
+@param edad
+ */
 
     public void mostrarMayoresDe(int edad){
         System.out.println("los propietarios mayores de " + edad + " son:");
@@ -104,6 +119,9 @@ public class Empresa {
         }
 
     }
+/*
+Metodo que muestra los usuarios que se encuentran en un rango de edad
+ */
 
     public void mostarEnRangoDeEdad(){
         Scanner scanner=new Scanner(System.in);

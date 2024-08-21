@@ -12,7 +12,10 @@ public class Usuario {
         this.vehiculoTransporte = vehiculoTransporte;
         this.peso = peso;
     }
-
+    /*
+    getters y setters
+    Metodos para modificar y obtener los diferentes atributos de la clase
+     */
     public String getNombre() {
         return nombre;
     }

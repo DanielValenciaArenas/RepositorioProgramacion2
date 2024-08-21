@@ -12,7 +12,10 @@ public class VehiculoCarga extends Vehiculo {
         this.capacidadCarga = capacidadCarga;
         this.numeroEjes = numeroEjes;
     }
-
+    /*
+    getters y setters
+    Metodos para modificar y obtener los diferentes atributos de la clase
+     */
     public double getCapacidadCarga() {
         return capacidadCarga;
     }

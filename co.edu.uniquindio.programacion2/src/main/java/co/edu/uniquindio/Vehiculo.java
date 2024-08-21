@@ -21,7 +21,10 @@ public abstract class Vehiculo {
         this.propietarioAsociado = propietarioAsociado;
         this.listaPropietariosAsociados = listaPropietariosAsociados;
     }
-
+    /*
+    getters y setters
+    Metodos para modificar y obtener los diferentes atributos de la clase
+     */
     public String getPlaca() {
         return placa;
     }

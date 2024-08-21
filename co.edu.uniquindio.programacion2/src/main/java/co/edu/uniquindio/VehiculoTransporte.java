@@ -12,7 +12,10 @@ public class VehiculoTransporte extends Vehiculo{
         this.maxPasajeros = maxPasajeros;
         this.listaUsuariosAsociados = listaUsuariosAsociados;
     }
-
+    /*
+    getters y setters
+    Metodos para modificar y obtener los diferentes atributos de la clase
+     */
     public int getMaxPasajeros() {
         return maxPasajeros;
     }

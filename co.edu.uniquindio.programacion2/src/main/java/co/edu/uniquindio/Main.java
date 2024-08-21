@@ -19,12 +19,12 @@ public class Main {
         System.out.print("Ingrese el valor de peso para filtrar usuarios: ");
         double peso = scanner.nextDouble();
         scanner.nextLine();
-        Empresa.mostrarUsuariosPorPeso(empresaTransporte, peso);  // Corregido
+        Empresa.mostrarUsuariosPorPeso(empresaTransporte, peso);
 
         // Contar usuarios por placa
         System.out.print("Ingrese la placa del vehículo de transporte para contar usuarios: ");
         String placa = scanner.nextLine();
-        Empresa.contarUsuariosPorPlaca(empresaTransporte, placa);  // Corregido
+        Empresa.contarUsuariosPorPlaca(empresaTransporte, placa);
 
         System.out.print("Ingrese la edad para saber los propietarios mayores a esa edad: ");
         int edad = scanner.nextInt();
@@ -32,7 +32,9 @@ public class Main {
 
         empresaTransporte.mostarEnRangoDeEdad();
     }
-
+/*
+Metodo que crea una empresa con datos pre-establecidos 
+ */
     public static Empresa inicializarDatos(){
         //Aqui se crean las Listas (vacias por el momento) que contendrá la empresa
         Collection<Propietario> listaPropietarios = new LinkedList<>();
@@ -86,6 +88,10 @@ public class Main {
 
         return empresaTransporte;
     }
+
+/*
+Metodo para indicar el numero de pasajeros transportados en un vehiculo segun la placa
+ */
 
     public static void calcularPasajerosTransportados(){
 
